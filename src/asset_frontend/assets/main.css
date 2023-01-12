@@ -1,0 +1,290 @@
+* {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.app {
+  width: 100%;
+}
+
+.appDesc {
+  border: 1px solid black;
+  margin-bottom: 10px;
+  font-size: 30px;
+  font-weight: bold;
+  padding: 5px;
+  width: 590px;
+}
+
+.subHeader {
+  font-size: 17px;
+  font-weight: normal;
+}
+
+.filterAssetContainer {
+  max-width: 600px;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.filterAssetContainer form {
+  display: flex;
+}
+
+.filterAssetContainer input {
+  width: 100%;
+  padding: 4px;
+}
+
+.filterAssetContainer button {
+  padding: 4px;
+  width: 12%;
+  font-size: 16px;
+  margin-left: 5px;
+}
+
+.listAssetContainer {
+  width: 600px;  
+  margin-right: 10px;
+}
+
+.listAssetContainer table{
+  border-collapse: collapse;
+  border: 1px solid black;
+  width: 100%;
+}
+
+.listAssetContainer th {
+  padding-left: 5px;
+  padding-right: 5px;
+  height: 30px;
+  font-size: 23px;
+  text-align: left;
+}
+
+.listAssetContainer th:first-child {
+  width: 15%;
+  border-right: 1px solid rgb(190, 190, 190);
+}
+
+.listAssetContainer tbody tr:hover {
+  background-color: rgba(219, 219, 219, 0.514);
+  cursor: pointer;
+}
+
+.listAssetContainer td{
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top: 1px solid rgb(212, 212, 212);
+  height: 25px;
+}
+
+.listAssetContainer td:first-child  {
+  border-right: 1px solid rgb(190, 190, 190);
+}
+
+.mainContainer {
+  display: flex;
+}
+
+#detailAssetContainer {
+  width: 350px;
+}
+
+.detail {
+  border: 1px solid black;
+  padding: 8px;
+}
+
+.textareaContainer {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.textareaContainer textarea {
+  max-width: 100%;
+  border: 0px;
+  border-bottom: 1px solid black;
+  font-size: 15px;
+}
+
+.inputField {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.inputField label {
+  font-size: 15px;
+  margin-bottom: 2px;
+}
+
+.inputField input {
+  font-size: 19px;
+  border: 0px;
+  border-bottom: 1px solid black;
+  outline: 0px;
+  padding: 0px;
+}
+
+.readOnlyInputField {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  color: rgb(161, 161, 161);
+}
+
+.readOnlyInputField:hover {
+  cursor: not-allowed;
+}
+
+.readOnlyInputField label {
+  font-size: 15px;
+  margin-bottom: 2px;
+  color: rgba(177, 177, 177, 0.425);
+}
+
+.readOnlyInputField input {
+  font-size: 19px;
+  border: 0px;
+  border-bottom: 1px solid black;
+  outline: 0px;
+  padding: 0px;
+  color: rgb(161, 161, 161);
+}
+
+.readOnlyInputField input:hover {
+  cursor: not-allowed;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.detailButton {
+  position: relative;
+}
+
+.btn:hover {
+  cursor: pointer;
+}
+
+.detailButton button {
+  width: 80px;
+  height: 30px;
+}
+
+.buttonSpinner::after {
+  position: absolute;
+  top: 4px;
+  left: 28px;
+}
+
+.disabledTableRow {
+  cursor: not-allowed;
+}
+
+.disabledTextarea {
+  color: rgba(156, 150, 150, 0.788);
+}
+
+.disabledTextarea:hover {
+  cursor: not-allowed;
+}
+
+.disabledTextareaContainer {
+  color: rgba(168, 168, 168, 0.555);
+}
+
+.disabledButton:hover {
+  cursor: not-allowed;
+}
+
+.disabledInput:hover {
+  cursor: not-allowed;
+}
+
+.disabledInput {
+  color: rgba(168, 168, 168, 0.555);
+}
+
+.disabledInputField:hover {
+  cursor: not-allowed;
+}
+
+.disabledInputField {
+  color: rgba(168, 168, 168, 0.555);
+}
+
+.disabledTableRow:hover {
+  cursor: not-allowed;
+  background-color: white;
+}
+
+.hint {
+  color: red;
+  font-size: 14px;
+} 
+
+.filterButtonContainer {
+  position: relative;
+  
+}
+
+.filterButtonContainer button {
+  width: 80px;
+}
+
+.filterButtonContainer div::after {
+  margin-left: 2px;
+}
+
+.lds-dual-ring:after {
+  content: " ";
+  display: block;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: 4px solid rgb(145, 145, 145);
+  border-color: rgb(145, 145, 145) transparent rgb(145, 145, 145) transparent;
+  animation: lds-dual-ring 1.2s linear infinite;
+  cursor: no-drop;
+}
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.detailViewSpinner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.detailViewSpinner:after {
+  content: " ";
+  display: block;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 4px solid rgb(145, 145, 145);
+  border-color: rgb(145, 145, 145) transparent rgb(145, 145, 145) transparent;
+  animation: lds-dual-ring 1s linear infinite;
+  cursor: progress;
+}
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

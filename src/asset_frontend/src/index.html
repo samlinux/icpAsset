@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>icpAsset - Demo Motoko Bootcamp 2023</title>
+    <link type="text/css" rel="stylesheet" href="main.css"/>
+  </head>
+  <body>
+    <div id="app">
+      <div class="appDesc">ICP - Asset Example <br><span class="subHeader">VanillaJs implementation</span></div>
+      <div class="filterAssetContainer">
+        <form onsubmit="return false" autocomplete="off">
+          <input id="filterInput" placeholder="Name" type="text" name="filter">
+          <div class="filterButtonContainer">
+            <div id="filterButtonSpinner"></div>
+            <button class="btn buttons" id="filterAssetButton" type="button">Filter</button>
+          </div>
+          <button type="button" class="btn buttons" id="addAssetButton">+</button>
+        </form>
+      </div>
+      <div class="mainContainer">
+        <div class="listAssetContainer">
+          <table>
+            <thead>
+              <tr>
+                <th>Key</th>
+                <th>Name</th>
+              </tr>
+            </thead>
+            <tbody id="tableBody"></tbody>
+          </table>
+        </div>
+        <div id="detailAssetContainer">
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
