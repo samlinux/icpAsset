@@ -39,18 +39,25 @@ export async function init(){
   addClickEvents();
 }
 
-async function showAssetDetail(key, type){
+async function showAssetDetail(key, type, values, Asset){
   let asset = [];
 
-  if(key != ''){
-    asset = await serviceGetAsset(key);
-  }
-  else {
-    asset = [];
+  if(type == 'add'){
     const newAsset = {
       age: '',
       desc: '',
       name: ''
+    }
+    asset.push(newAsset);
+  }
+  else if(values == '' && Asset != undefined){
+    asset = Asset;
+  }
+  else{
+    const newAsset = {
+      age: values.ageValue,
+      desc: values.descValue,
+      name: values.nameValue
     }
     asset.push(newAsset);
   }
@@ -151,8 +158,8 @@ async function addAsset(){
 
   if(await checkKeyValue(values.keyValue)){
    await serviceAddAsset(values.keyValue, values);
-   await showAssetDetail(values.keyValue, 'update');
-  loadFilteredAssets();
+   showAssetDetail(values.keyValue, 'update', values, undefined);
+   loadFilteredAssets();
   }
 
   buttonSpinner('stop', 'saveButtonSpinner');
@@ -212,7 +219,10 @@ function removeAssetDetail(){
 async function assetClickHandler(target){
   removeAssetDetail();
   startDetailViewSpinner();
-  await showAssetDetail(target.path[1].id, 'update');
+
+  const key = target.target.parentNode.id;
+  const asset = await serviceGetAsset(key);
+  showAssetDetail(key, 'update', '', asset);
 }
 
 async function filterClickHandler(){
@@ -223,7 +233,7 @@ async function filterClickHandler(){
 
 async function addClickEvents(){
   document.querySelector('#addAssetButton').addEventListener('click', function(){
-    showAssetDetail('', 'add');
+    showAssetDetail('', 'add', '', undefined);
   })
 
   document.querySelector('#filterAssetButton').addEventListener('click', function(){
@@ -275,15 +285,18 @@ function startDetailViewSpinner(){
 
 async function checkKeyValue(key){
   let status = true;
-  const asset = await serviceGetAsset(key);
+  const assets = await serviceGetAllAssets();
+
+  assets.forEach(function(asset){
+    if(asset[0] == key){
+      status = false;
+      showHint('The key already exists.');
+    }
+  })
 
   if(document.getElementsByName('key')[0].value == ''){
     status = false;
     showHint('The key needs a value.');
-  }
-  else if(asset.length > 0){
-    status = false;
-    showHint('The key already exists.');
   }
 
   return status;
