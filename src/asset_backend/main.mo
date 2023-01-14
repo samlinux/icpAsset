@@ -18,8 +18,8 @@ actor {
     assetStore.put (key, {name = name; age = age; desc = desc});
   };
 
-  public func getAsset(key:Text) : async ?Asset {
-    return assetStore.get(key);
+  public query func getAsset(key:Text) : async ?Asset {
+    assetStore.get(key);
   };
 
   public func removeAsset(key:Text) : async () {
